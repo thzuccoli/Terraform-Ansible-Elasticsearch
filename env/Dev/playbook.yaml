@@ -1,0 +1,33 @@
+- hosts: terraform-ansible             # hosts informado no arquivo hosts.yaml
+  tasks:                               # tarefas
+  - name: instalando o python3, vitualenv
+    apt:         
+      pkg:
+      - python3
+      - virtualenv
+      update_cache: yes           # atualização dos repositorios
+    become: yes          # ação de executar como usuario root
+  
+  - name: instalando dependencias com pip (Django e Django Rest)
+    pip:        # tarefa para instalação com pip
+      virtualenv: /home/ubuntu/tcc/venv      # ação de criar a pasta tcc e virtualenv para instalação das dependencias
+      name:              # informar o nome dos pacotes
+        - django
+        - djangorestframework
+  
+  - name: verificando se o projeto ja existe
+    stat:                # ação de verificar o estado
+      path: /home/ubuntu/tcc/setup/settings.py
+    register: projeto              # guardar o estado como projeto (variavel)
+  
+  - name: Iniciando o projeto 
+    when: not projeto.stat.exists     # validação se o stat do projeto existe para execução do shell  
+    shell: '. /home/ubuntu/tcc/venv/bin/activate; django-admin startproject setup /home/ubuntu/tcc' 
+    # linha ativar o venv e iniciar o projeto em python salvando as config dentro da pasta setup
+  
+  - name: Alterando o hosts do settings
+    lineinfile:                                    # ação de alterar algo num arquivo de texto
+      path: /home/ubuntu/tcc/setup/settings.py           # caminho do arquivo para alteração
+      regexp: 'ALLOWED_HOSTS'            # informar a expressão que queremos trocar
+      line: 'ALLOWED_HOSTS = ["*"]'      # informar a subsituição
+      backrefs: yes             # ação caso não ache a expressão, não realizar ação nenhuma

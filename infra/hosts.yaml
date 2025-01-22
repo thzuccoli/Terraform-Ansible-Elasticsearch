@@ -1,0 +1,2 @@
+[terraform-ansible]        # nome qualquer
+35.163.187.153        # endereço IP da maquina a ser configurada com ansible

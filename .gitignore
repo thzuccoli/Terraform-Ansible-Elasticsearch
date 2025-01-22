@@ -1,0 +1,10 @@
+### Terraform ###
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files (não compartilhar o estado do terraform)
+*.tfstate
+*.tfstate.*
+
+# nao compartilhar a chave ssh
+*.pem            
