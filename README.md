@@ -1,6 +1,6 @@
 # Resumo do projeto
 
-Segundo projeto de Infraestrutura como código, utilizando Terraform para provisionamento, Ansible para as configurações e dependências, e AWS como provedor da infraestrutura.
+Projeto utilizando Terraform para provisionamento, Ansible para as configurações e dependências, e AWS como provedor da infraestrutura.
 
 ## 🔨 Funcionalidades do projeto
 
@@ -16,16 +16,12 @@ A partir desse projeto você pode:
 
 Neste App são exploradas as seguintes técnicas e tecnologias:
 
-- **Criação de maquinas na EC2**: criação de maquinas virtuias no ambiente EC2 (Elastic Compute Cloud) da AWS
-- **Configuração das maquinas**: configura as maquians de forma automatica ultilizando o Ansible
-- **Criação de playbooks**: os playbooks são parte integral do ansible e descrevem quais os passos a serem seguidos
+- **Criação de maquinas na EC2**: criação de maquinas virtuias no ambiente EC2 (Elastic Compute Cloud) da AWS (/infra/main.tf)
+- **Configuração das maquinas**: configura as maquinas de forma automatica ultilizando o Ansible 
+- **Criação de playbooks**: os playbooks são parte integral do ansible e descrevem quais os passos a serem seguidos (/env/prod/playbook.yml)
 - **Separação de ambientes**: 2 ambientes separados, construidos de forma automatica pelo Terraform, reultilizando codigo.
 - **Execução de APIs**: como iniciar um API automaticamente apos a configuração da maquina
 - **Criação do load balancer**: o load balancer é um programa ultilziado para distribuir requisições entre multiplas maquinas
-
-## 📁 Acesso ao projeto
-
-Você pode [baixar o zip](https://github.com/leollo98/iac-curso3/archive/refs/heads/Aula_5.zip) ou [acessar o código fonte](https://github.com/leollo98/iac-curso3/tree/Aula_5) do projeto final.
 
 ## 🛠️ Abrir e rodar o projeto
 
