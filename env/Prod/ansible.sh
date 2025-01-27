@@ -22,7 +22,7 @@ tee -a playbook.yml > /dev/null <<EOT
 
   - name: Git Clone                                      #nome da task a ser executada
     ansible.builtin.git:			       #ação de clonagem dentro do ansible
-      repo: https://github.com/alura-cursos/clientes-leo-api.git       #repositório do GitHub a ser clonado 
+      repo: https://github.com/guilhermeonrails/clientes-leo-api.git        #repositório do GitHub a ser clonado 
       dest: /home/ubuntu/tcc                          #destino do clone referente ao código a ser implementado
       single_branch: yes
       version: master                               # branch do git a ser clonado
